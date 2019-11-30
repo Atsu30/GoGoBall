@@ -20,4 +20,17 @@ public class Ball : MonoBehaviour
             transform.Rotate(new Vector3(0, 90, 0));
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.tag == "Goal")
+        {
+            // showClear
+            Debug.Log("Clear");
+        }
+    }
 }
